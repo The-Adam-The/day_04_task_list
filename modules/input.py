@@ -1,7 +1,16 @@
+def input_text(option):
+    if option == '7':
+        user_description_input = input("Enter description: ")
+        user_time_taken_input = int(input("Enter time taken: "))
+        return user_description_input, user_time_taken_input
 
-option_4_input_text = "Enter task description to search for: "
-option_5_input_text = "Enter task duration: "
-option_6_input_text = "Enter task description to search for: "
-option_7_description_input_text = "Enter description: "
-option_7_time_taken_input_text = "Enter time taken: "
+    elif option == '5':
+        task_duration = input("Enter task duration: ")
+        return task_duration
 
+    elif option == '6' or '4':
+        user_description_input = input("Enter task description to search for: ")
+        return user_description_input
+
+    else:
+        return "An error has occured."

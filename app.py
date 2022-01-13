@@ -1,5 +1,10 @@
 from modules.task_list import *
 from modules.output import *
+from data.task_list import *
+from modules.input import *
+
+
+import_task_list(tasks)
 
 while (True):
     print_menu()
@@ -13,7 +18,7 @@ while (True):
     elif option == '3':
         print_list(get_completed_tasks(tasks))
     elif option == '4':
-        description = input("Enter task description to search for: ")
+        description = input_text(option) #
         task = get_task_with_description(tasks, description)
         if task is not None:
             mark_task_complete(task)
@@ -21,15 +26,16 @@ while (True):
         else:
             print("Task not found")
     elif option == '5':
-        time = int(input("Enter task duration: "))
+        time = int(input_text(option))
         print_list(get_tasks_taking_at_least(tasks, time))
     elif option == '6':
-        description = input("Enter task description to search for: ")
+        description = input_text(option)
         print(get_task_with_description(tasks, description))
     elif option == '7':
-        description = input("Enter description: ")
-        time_taken = int(input("Enter time taken: "))
+        description, time_taken = input_text(option)
         task = create_task(description, time_taken)
         tasks.append(task)
+    elif option == "8":
+        clear_task_list(tasks)
     else:
         print("Invalid Input - choose another option")

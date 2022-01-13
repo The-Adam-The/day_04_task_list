@@ -1,15 +1,6 @@
 from webbrowser import get
 
 
-tasks = [
-    { "description": "Wash Dishes", "completed": False, "time_taken": 10 },
-    { "description": "Clean Windows", "completed": False, "time_taken": 15 },
-    { "description": "Make Dinner", "completed": True, "time_taken": 30 },
-    { "description": "Feed Cat", "completed": False, "time_taken": 5 },
-    { "description": "Walk Dog", "completed": True, "time_taken": 60 },
-]
-
-# Functions to complete:
 
 ## Get a list of uncompleted tasks
 def get_uncompleted_tasks(list):
@@ -62,8 +53,23 @@ def create_task(description, time_taken):
     task["description"] = description
     task["completed"] = False
     task["time_taken"] = time_taken
-
     return task
 
 def add_to_list(list, task):
     list.append(task)
+
+def import_task_list(list):
+    import_tasks = input("Would you like to load your saved task list? (y)es, (n)o, or (q)uit?")
+    if import_tasks.lower() == "y":
+        pass
+    elif import_tasks.lower() == "n":
+        clear_task_list(list)
+    elif import_tasks.lower() == "q":
+        quit()
+    else:
+        print("Your input wasn't recognised, please try again.")
+        import_task_list(list)
+
+
+def clear_task_list(list):
+    list.clear()

@@ -16,5 +16,6 @@ def print_menu():
     print("5: Get Tasks Which Take Longer Than a Given Time")
     print("6: Find Task by Description")
     print("7: Add a new Task to list")
+    print("8: Clear Task List")
     print("M or m: Display this menu")
     print("Q or q: Quit")
